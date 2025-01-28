@@ -153,10 +153,10 @@ local Button3 = TPTab:CreateButton({
 })
 
 local MiscTab = Window:CreateTab("Misc", nil) -- Title, Image
-local Toggle = MiscTab:CreateToggle({
+local Toggle = TPTab:CreateToggle({
    Name = "esp",
    CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "Toggle12", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
   local workspace = game:GetService("Workspace")
 local player = game:GetService("Players").LocalPlayer
