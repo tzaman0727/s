@@ -153,10 +153,12 @@ local Button3 = TPTab:CreateButton({
 })
 
 local MiscTab = Window:CreateTab("Misc", nil) -- Title, Image
-local Button = MainTab:CreateButton({
+local Toggle = Tab:CreateToggle({
    Name = "esp",
-   Callback = function()
-   local workspace = game:GetService("Workspace")
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+  local workspace = game:GetService("Workspace")
 local player = game:GetService("Players").LocalPlayer
 local camera = workspace.CurrentCamera
 
@@ -167,7 +169,7 @@ local Box_Color = Color3.fromRGB(0, 255, 50)
 local Box_Thickness = 1.4
 local Box_Transparency = 1 -- 1 Visible, 0 Not Visible
 
-local Tracers = false
+local Tracers = true
 local Tracer_Color = Color3.fromRGB(0, 255, 50)
 local Tracer_Thickness = 1.4
 local Tracer_Transparency = 1 -- 1 Visible, 0 Not Visible
@@ -470,5 +472,6 @@ game.Players.PlayerAdded:Connect(function(newplr)
     end
     coroutine.wrap(ESP)()
 end)
+   -- The variable (Value) is a boolean on whether the toggle is true or false
    end,
 })
